@@ -9,11 +9,11 @@
   <form method="POST">
     <div>
     <label for="email">Email: </label>
-    <input type="text" class="form-control" id="email" name="email">
+    <input type="text" class="form-control" id="email" name="email" th:value="${order.email}">
     </div>
     <div>
     <label for="totalPrice">Price: </label>
-    <input type="number" class="form-control" id="totalPrice" name="totalPrice">
+    <input type="number" class="form-control" id="totalPrice" name="totalPrice" th:value="${order.totalPrice}">
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
   </form>
