@@ -59,26 +59,13 @@ public class OrderController {
         return "redirect:/orders";
     }
 
-//    //Finding the order by id to update
-//    @GetMapping("/orders/{id}/update")
-//    public String updateOrder(@PathVariable long id, Model model){
-//        Order order = ordersDao.findById(id).get();
-//        model.addAttribute("order", order);
-//        return "orders/update";
-//    }
-@GetMapping("/orders/{id}/update")
-public String updateOrder(@PathVariable long id, Model model) {
-    Optional<Order> optionalOrder = ordersDao.findById(id);
-    if (optionalOrder.isPresent()) {
-        Order order = optionalOrder.get();
+    //Finding the order by id to update
+    @GetMapping("/orders/{id}/update")
+    public String updateOrder(@PathVariable long id, Model model){
+        Order order = ordersDao.findById(id).get();
         model.addAttribute("order", order);
         return "orders/update";
-    } else {
-        // Return a 404 error page or a user-friendly error message
-        return "error/404";
     }
-}
-
 
     @PostMapping("/orders/{id}/update")
     public String updatedOrder(@PathVariable long id, @RequestParam String email, @RequestParam double totalPrice, Model model){
